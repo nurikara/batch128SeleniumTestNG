@@ -13,12 +13,12 @@ public class C03_Priority {
     WebDriver driver;
 
 
-    @Test(priority = -2)
+    @Test(priority = -2 )
     public void amazontest() {
 
         driver.get("http://amazon.com");
     }
-    @Test(priority =-3)
+    @Test(priority =-3 )
     public void techprotest() {
 
         driver.get("http://techproeducation.com");

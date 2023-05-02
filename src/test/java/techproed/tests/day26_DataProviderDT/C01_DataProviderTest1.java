@@ -21,7 +21,7 @@ public class C01_DataProviderTest1 {
         return excelUtils.getDataArrayWithoutFirstRow();
     }
 
-    @Test(dataProvider = "customerData")
+    @Test(dataProvider = "customerData",groups="RegressionGroup1" )
     public void dataProviderExcelTest(String email, String password){
         Driver.getDriver().get(ConfigReader.getProperty("blueRentACarUrl"));
         BlueRentalPage blueRentalPage = new BlueRentalPage();

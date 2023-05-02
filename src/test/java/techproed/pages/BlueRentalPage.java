@@ -11,6 +11,8 @@ public class BlueRentalPage {
     public BlueRentalPage(){
         PageFactory.initElements(Driver.getDriver(),this);
     }
+    @FindBy(id = "liwn3e6e5")
+    public WebElement hata;
 
     @FindBy(xpath = "(//*[@role='button'])[1]")
     public WebElement login;

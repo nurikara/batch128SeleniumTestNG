@@ -4,19 +4,19 @@ import org.openqa.selenium.Keys;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import techproed.pages.BlueRentalPage;
-import techproed.utilities.ConfigReader;
-import techproed.utilities.Driver;
-import techproed.utilities.ReusableMethods;
+import techproed.utilities.*;
 
-public class C01_DataProvider {
-    @DataProvider
-    public static Object[][] Costumer() {
-        return new Object[][]{{ConfigReader.getProperty("email1"),ConfigReader.
-                getProperty("password1")},{ConfigReader.
-                getProperty("email2"),ConfigReader.getProperty("password2")}};
+import java.util.Arrays;
+
+public class C03_DataProviderExel {
+    @Test
+    public void test01() {
+        ExcelUtils excelUtils = new ExcelUtils("src/test/java/resources/mysmoketestdata.xlsx","customer_info");
+
+        System.out.println("excelUtils.getDataArrayWithoutFirstRow() = " + Arrays.deepToString(excelUtils.getDataArrayWithoutFirstRow()));
     }
 
-    @Test(dataProvider="Costumer")
+    @Test(dataProvider="blueRental",dataProviderClass = DataProviderUtils.class)
     public void test01(String email, String password) {
         Driver.getDriver().get(ConfigReader.getProperty("blueRentACarUrl"));
         BlueRentalPage blueRentalPage = new BlueRentalPage();
@@ -24,6 +24,5 @@ public class C01_DataProvider {
         blueRentalPage.email.sendKeys(email, Keys.TAB,password,Keys.ENTER);
         ReusableMethods.bekle(3);
         Driver.closeDriver();
-
     }
 }

@@ -73,7 +73,7 @@ public class day22_TestNGAnnotationsDT {
     }
 
 
-    @Test
+    @Test(groups="RegressionGroup1")
     public void test01() {
         System.out.println("Test 1");
     }
@@ -83,7 +83,7 @@ public class day22_TestNGAnnotationsDT {
         System.out.println("Test 2");
     }
 
-    @Test(groups = "regression test")
+    @Test(groups = "RegressionGroup1" )
     public void test03() {
         System.out.println("Test 3");
     }
