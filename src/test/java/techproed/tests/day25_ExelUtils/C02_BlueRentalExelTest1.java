@@ -18,7 +18,7 @@ public class C02_BlueRentalExelTest1 {
         String password = excelUtils.getCellData(1, 1);
 
         //Bluerantal car adresine gidelim.
-        Driver.getDriver().get(ConfigReader.getProperty("blueRentACarUrl"));
+        Driver.getDriver("chrome").get(ConfigReader.getProperty("blueRentACarUrl"));
         //Excel dosyamızdan aldıgımız ılk emaıl ve password ıle sayfaya login olalım.
         BlueRentalPage blueRentalPage = new BlueRentalPage();
         blueRentalPage.login.click();

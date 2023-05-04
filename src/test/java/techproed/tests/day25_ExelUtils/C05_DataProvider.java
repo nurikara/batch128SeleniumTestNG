@@ -24,7 +24,7 @@ public class C05_DataProvider {
                 */
     @Test(dataProvider = "blueRental")
     public void test01(String email, String password) {
-        Driver.getDriver().get(ConfigReader.getProperty("blueRentACarUrl"));
+        Driver.getDriver("chrome").get(ConfigReader.getProperty("blueRentACarUrl"));
         BlueRentalPage blueRentalPage = new BlueRentalPage();
         blueRentalPage.login.click();//login buttonuna tıklar
         blueRentalPage.email.sendKeys(email, Keys.TAB,password,Keys.ENTER);

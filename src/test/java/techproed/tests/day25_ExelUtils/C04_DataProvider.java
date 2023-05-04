@@ -36,7 +36,7 @@ public class C04_DataProvider {
     public void googleTest(String araclar) {
         //Google sayfasına gidiniz
         //Driver.getDriver().get("https://google.com");
-        Driver.getDriver().get(ConfigReader.getProperty("googleUrl"));
+        Driver.getDriver("chrome").get(ConfigReader.getProperty("googleUrl"));
         //{"Volvo"},{"Mercedes"},{"Audi"},{"Honda"},{"Toyota"},{"Opel"},{"BMW"} araçları aratınız
         GooglePage googlePage = new GooglePage();
         googlePage.aramaKutusu.sendKeys(araclar, Keys.ENTER);

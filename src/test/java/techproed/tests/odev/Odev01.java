@@ -24,7 +24,7 @@ public class Odev01 {
     @Test
     public void testName() {
         //sayfaya gidelim
-        Driver.getDriver().get(ConfigReader.getProperty("blue_Url"));
+        Driver.getDriver("chrome").get(ConfigReader.getProperty("blue_Url"));
     BlueRentalPage blueRentalPage = new BlueRentalPage();
         blueRentalPage.login.click();
         blueRentalPage.email.sendKeys(ConfigReader.getProperty("blueRentAcar_Email"),

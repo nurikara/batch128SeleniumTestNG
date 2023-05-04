@@ -14,7 +14,7 @@ public class OpenSourcePage {
         3-@FindBy notasyonu kullanarak locatelerimizi alırız
      */
     public OpenSourcePage(){
-        PageFactory.initElements(Driver.getDriver(),this);
+        PageFactory.initElements(Driver.getDriver(""),this);
     }
     @FindBy(xpath = "//*[@name='username']")
     public WebElement username;

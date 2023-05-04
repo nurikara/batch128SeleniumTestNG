@@ -19,21 +19,21 @@ public class Driver {
       */
     static WebDriver driver;
 
-    public static WebDriver getDriver() {
+    public static WebDriver getDriver(String chrome_Or_edge) {
         /*
             Driver'i her çağırdığında yeni bir pencere açılmasının önüne geçmek için
         if bloğu içinde Eğer driver'a değer atanmamışsa(driver doluysa) değer ata, Eğer değer atanmışsa Driver'i aynı
         sayfada RETURN et. Bunun sadece yapmamız gereken if(driver==null) kullanmak
          */
         if (driver == null) {
-            switch (ConfigReader.getProperty("browser")) {
+            switch (ConfigReader.getProperty(chrome_Or_edge)) {
                 case "chrome":
                     WebDriverManager.chromedriver().setup();
                     driver = new ChromeDriver();
                     break;
                 case "edge":
                     WebDriverManager.edgedriver().setup();
-                    driver = new ChromeDriver();
+                    driver = new EdgeDriver();
                     break;
                 default:
                     WebDriverManager.chromedriver().setup();

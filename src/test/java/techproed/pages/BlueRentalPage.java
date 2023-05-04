@@ -9,9 +9,9 @@ public class BlueRentalPage {
 
 
     public BlueRentalPage(){
-        PageFactory.initElements(Driver.getDriver(),this);
+        PageFactory.initElements(Driver.getDriver(""),this);
     }
-    @FindBy(id = "liwn3e6e5")
+    @FindBy(xpath = "//*[@role='alert']")
     public WebElement hata;
 
     @FindBy(xpath = "(//*[@role='button'])[1]")
@@ -36,7 +36,11 @@ public class BlueRentalPage {
     @FindBy(xpath = "//div[text()='Bad credentials']")
     public WebElement hataMesaji2;
 
+    @FindBy(xpath = "//select[@name=\"car\"]")
+    public WebElement selectCar;
 
+    @FindBy(xpath = "//div[text()='Please first login']")
+    public WebElement errorMessage;
 
 
 }

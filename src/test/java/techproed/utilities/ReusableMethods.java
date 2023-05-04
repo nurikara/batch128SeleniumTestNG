@@ -33,22 +33,22 @@ public class ReusableMethods {
 
     //Alert ACCEPT
     public static void alertAccept() {
-        Driver.getDriver().switchTo().alert().accept();
+        Driver.getDriver("").switchTo().alert().accept();
     }
 
     //Alert DISMISS
     public static void alertDismiss() {
-        Driver.getDriver().switchTo().alert().dismiss();
+        Driver.getDriver("").switchTo().alert().dismiss();
     }
 
     //Alert getText()
     public static void alertText() {
-        Driver.getDriver().switchTo().alert().getText();
+        Driver.getDriver("").switchTo().alert().getText();
     }
 
     //Alert promptBox
     public static void alertprompt(String text) {
-        Driver.getDriver().switchTo().alert().sendKeys(text);
+        Driver.getDriver("").switchTo().alert().sendKeys(text);
     }
 
     //DropDown VisibleText
@@ -77,33 +77,33 @@ public class ReusableMethods {
 
     //SwitchToWindow1
     public static void switchToWindow(int sayi) {
-        List<String> tumWindowHandles = new ArrayList<String>(Driver.getDriver().getWindowHandles());
-        Driver.getDriver().switchTo().window(tumWindowHandles.get(sayi));
+        List<String> tumWindowHandles = new ArrayList<String>(Driver.getDriver("").getWindowHandles());
+        Driver.getDriver("").switchTo().window(tumWindowHandles.get(sayi));
     }
 
     //SwitchToWindow2
     public static void window(int sayi) {
-        Driver.getDriver().switchTo().window(Driver.getDriver().getWindowHandles().toArray()[sayi].toString());
+        Driver.getDriver("").switchTo().window(Driver.getDriver("").getWindowHandles().toArray()[sayi].toString());
     }
     //EXPLICIT WAIT METHODS
 
     //Visible Wait
     public static void visibleWait(WebElement element, int sayi) {
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(sayi));
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(""), Duration.ofSeconds(sayi));
         wait.until(ExpectedConditions.visibilityOf(element));
 
     }
 
     //VisibleElementLocator Wait
     public static WebElement visibleWait(By locator, int sayi) {
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(sayi));
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(""), Duration.ofSeconds(sayi));
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 
     }
 
     //Alert Wait
     public static void alertWait(int sayi) {
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(sayi));
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(""), Duration.ofSeconds(sayi));
         wait.until(ExpectedConditions.alertIsPresent());
 
     }
@@ -112,7 +112,7 @@ public class ReusableMethods {
     public static void tumSayfaResmi() {
         String tarih = new SimpleDateFormat("_hh_mm_ss_ddMMyyyy").format(new Date());
         String dosyaYolu = "TestOutput/screenshot/screenshot" + tarih + ".png";
-        TakesScreenshot ts = (TakesScreenshot) Driver.getDriver();
+        TakesScreenshot ts = (TakesScreenshot) Driver.getDriver("");
         try {
             FileUtils.copyFile(ts.getScreenshotAs(OutputType.FILE), new File(dosyaYolu));
         } catch (IOException e) {
@@ -149,7 +149,7 @@ public class ReusableMethods {
 
     //WebTable
     public static void printData(int satir, int sutun) {
-        WebElement satirSutun = Driver.getDriver().findElement(By.xpath("(//tbody)[1]//tr[" + satir + "]//td[" + sutun + "]"));
+        WebElement satirSutun = Driver.getDriver("").findElement(By.xpath("(//tbody)[1]//tr[" + satir + "]//td[" + sutun + "]"));
         System.out.println(satirSutun.getText());
     }
 
@@ -158,44 +158,44 @@ public class ReusableMethods {
         try {
             element.click();
         } catch (Exception e) {
-            JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+            JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver("");
             js.executeScript("arguments[0].click();", element);
         }
     }
 
     //JS Scroll
     public static void scroll(WebElement element) {
-        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver("");
         js.executeScript("arguments[0].scrollIntoView(true);", element);
     }
 
     //JS Sayfa Sonu Scroll
     public static void scrollEnd() {
-        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver("");
         js.executeScript("window.scrollTo(0,document.body.scrollHeight)");
     }
 
     //JS Sayfa Başı Scroll
     public static void scrollHome() {
-        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver("");
         js.executeScript("window.scrollTo(0,-document.body.scrollHeight)");
     }
 
     //JS SendKeys
     public static void sendKeysJS(WebElement element, String text) {
-        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver("");
         js.executeScript("arguments[0].value='" + text + "'", element);
     }
 
     //JS SendAttributeValue
     public static void sendAttributeJS(WebElement element, String text) {
-        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver("");
         js.executeScript("arguments[0].setAttribute('value','" + text + "')", element);
     }
 
     //JS GetAttributeValue
     public static void getValueByJS(String id, String attributeName) {
-        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver("");
         String attribute_Value = (String) js.executeScript("return document.getElementById('" + id + "')." + attributeName);
         System.out.println("Attribute Value: = " + attribute_Value);
     }

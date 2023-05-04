@@ -17,7 +17,7 @@ EXCEL dosyasindaki tum email ve passwordler ile
 BlueRentalCar sayfasina gidip login olalim?
  */
         ExcelUtils excelUtils = new ExcelUtils("src/test/java/resources/mysmoketestdata.xlsx", "customer_info");
-        Driver.getDriver().get(ConfigReader.getProperty("blueRentACarUrl"));
+        Driver.getDriver("").get(ConfigReader.getProperty("blueRentACarUrl"));
         BlueRentalPage blueRentalPage = new BlueRentalPage();
         for (int i = 1; i <= excelUtils.rowCount(); i++) {
             //i yi birden başlattık çünkü veriler birinci satırda başlıyor

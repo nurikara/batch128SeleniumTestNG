@@ -8,7 +8,7 @@ import techproed.utilities.Driver;
 public class TestCenterTechproPage {
 
     public TestCenterTechproPage() {
-        PageFactory.initElements(Driver.getDriver(), this);
+        PageFactory.initElements(Driver.getDriver(""), this);
     }
 
     @FindBy(xpath = "//*[@id='exampleInputEmail1']")

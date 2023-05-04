@@ -10,7 +10,7 @@ public class C02_PageKullanimi {
     @Test
     public void test01() {
         //https://opensource-demo.orangehrmlive.com/web/index.php/auth/login adrese gidelim
-        Driver.getDriver().get(ConfigReader.getProperty("openSource_Url"));
+        Driver.getDriver("").get(ConfigReader.getProperty("openSource_Url"));
         /*
             Yukardaki adress için 20 adet test methodu oluşturursak sonrasında yukardaki url'de bir değişiklik
         olduğunda bütün test methodlarından tek tek url düzeltmek yerine bir kere .properties dosyamdan

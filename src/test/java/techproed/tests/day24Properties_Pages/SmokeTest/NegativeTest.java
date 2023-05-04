@@ -9,7 +9,7 @@ import techproed.utilities.Driver;
 
 public class NegativeTest {
 
-    @Test
+    @Test(groups = {"smoke"})
     public void test01() throws InterruptedException {
         /*
         Description:
@@ -22,7 +22,7 @@ public class NegativeTest {
 
          */
 
-        Driver.getDriver().get(ConfigReader.getProperty("blueRentACarUrl"));
+        Driver.getDriver("").get(ConfigReader.getProperty("blueRentACarUrl"));
         BlueRentalPage blueRentalPage = new BlueRentalPage();
         blueRentalPage.login.click();
         blueRentalPage.email.sendKeys(ConfigReader.

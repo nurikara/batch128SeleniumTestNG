@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 import techproed.pages.BlueRentalPage;
 import techproed.utilities.ConfigReader;
 import techproed.utilities.Driver;
+import techproed.utilities.ReusableMethods;
 
 public class Odev02 {
 
@@ -14,17 +15,17 @@ public class Odev02 {
 //        Description:
 //        Kullanimda olmayan kullanıcı adi ve şifre ile giriş yapılamamalı
 //        Acceptance Criteria:
-        Driver.getDriver().get(ConfigReader.getProperty("blueRentACarUrl"));
+        Driver.getDriver("chrome").get(ConfigReader.getProperty("blueRentACarUrl"));
 //        Kullanici dogru email ve yanlis sifre girildiginde, hata mesajini alınmalı
         BlueRentalPage blueRentalPage = new BlueRentalPage();
-       blueRentalPage.login.click();
-       blueRentalPage.email.
-               sendKeys(ConfigReader.getProperty("email11"), Keys.TAB,ConfigReader.
-                       getProperty("pass11"),Keys.TAB,Keys.ENTER);
-
+        blueRentalPage.login.click();
+        blueRentalPage.email.
+                sendKeys(ConfigReader.getProperty("email11"), Keys.TAB, ConfigReader.
+                        getProperty("pass11"), Keys.TAB, Keys.ENTER);
+        ReusableMethods.bekle(3);
 
 //        Hata Mesaji:
-   //   assert (blueRentalPage.hata.getText().equals("Bad credentials"));
+        Assert.assertTrue(blueRentalPage.hata.getText().contains("Bad credentials"));
 //        Bad credentials
 //        Test Data:
 //        Customer email: jack@gmail.com

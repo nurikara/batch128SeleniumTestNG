@@ -10,9 +10,9 @@ import techproed.utilities.Driver;
 public class C01_ClassWork {
     @Test
     public void test01() {
-        Driver.getDriver().get(ConfigReader.getProperty("amazon_Url"));
+        Driver.getDriver("").get(ConfigReader.getProperty("amazon_Url"));
         Driver.closeDriver();
-        Driver.getDriver().get(ConfigReader.getProperty("techproed_Url"));
+        Driver.getDriver("").get(ConfigReader.getProperty("techproed_Url"));
     }
 
     public static class C03_PageKullanimi {
@@ -22,7 +22,7 @@ public class C01_ClassWork {
 
             //https://testcenter.techproeducation.com/index.php?page=form-authentication
 
-            Driver.getDriver().get(ConfigReader.getProperty("testCenterUrl"));
+            Driver.getDriver("edge").get(ConfigReader.getProperty("testCenterUrl"));
             //Page object Model kullanarak sayfaya giriş yapildigini test edin
             TestCenterTechproPage testCenterTechproPage=new TestCenterTechproPage();
             testCenterTechproPage.userName.sendKeys(ConfigReader.getProperty("kaniciadi"), Keys.TAB,
