@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="day24 Smoke test">
+    <test name="negative ve positive test">
+        <!-- Testlerimizde .xml file ile belirli grupları çalıştırmak istersek,
+            çalistirmak istediğimiz @Test notasyonundan sonra group parametresi ile isim belirtmemiz gerekir
+            .xml file belirli grupları çaliştirmak için <test> tag'ından sonra <group> tag'ı kullanılır
+            sonrasında hangi class yada package da olduğu belirtilir-->
+        <groups>
+            <run>
+                <include name="smoke"/>
+
+            </run>
+        </groups>
+        <packages>
+         <package name="techproed.*">
+
+         </package>
+        </packages>
+    </test>
+</suite>

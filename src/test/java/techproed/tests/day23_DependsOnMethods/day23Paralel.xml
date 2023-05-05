@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test name="day23 Paralel Test" parallel="classes" thread-count="2" >
+        <classes>
+            <class name="techproed.tests.day23_DependsOnMethods.C01_DependsOnMethods">
+                <methods>
+                    <include name="amazonTest"/>
+                    <include name="amazonTest2"/>
+                    <include name="amazonTest3"/>
+                </methods>
+            </class>
+            <class name="techproed.tests.day23_DependsOnMethods.C02_DependsOnMethodPriority">
+                <methods>
+                    <include name="amazonTest"/>
+                    <include name="amazonTest2"/>
+                    <include name="amazonTest3"/>
+                </methods>
+            </class>
+            <class name="techproed.tests.day23_DependsOnMethods.C03_SoftAssertion">
+                <methods>
+                    <include name="amazonTest"/>
+                </methods>
+            </class>
+            <class name="techproed.tests.day23_DependsOnMethods.C04_DriverTest">
+                <methods>
+                    <include name="driverTest1"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
